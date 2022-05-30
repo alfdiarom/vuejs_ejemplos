@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+    <py-env>
+        - bokeh
+        - numpy
+        - pandas
+        - panel==0.13.1
+    </py-env>
+</head>
+
+<body>
+
+
+    <py-script>
+        import json
+
+        lista=[]
+        lista.append({"Name": "Person_3","Age": 33,"Email": "33@gmail.com"})
+        lista.append({"Name": "Person_3","Age": 33,"Email": "asdasd"})
+
+        print(lista)
+
+        print(json.dumps(lista))
+    </py-script>
+
+</body>
+
+</html>
