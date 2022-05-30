@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- https://www.youtube.com/watch?v=u87jOgeBS-o&list=PLSuKjujFoGJ1Kr_e1GT2nREnzXCXgoVm3&index=4 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <div id="aplicacion">
+  
+        <!-- salta a los 3 tiros -->
+        <h1 v-if="(oportunidades==3)"> Ya realizaste 3 tiros</h1>
+        <h1 v-else="(oportunidades==3)">Tiros: {{ oportunidades }}</h1> 
+      <h2>jugador1: {{ jugador1 }}</h2>
+      <h2>jugador2: {{ jugador2 }}</h2>
+      <h1>ganador: {{ ganador }}</h1>
+      <h1>oportunidades: {{ oportunidades }}</h1>
+
+    <input type="button" v-on:click="jugar" :disabled="oportunidades==3" value="jugar">
+
+    <input type="button" v-on:click="reiniciar" value="reiniciar">
+
+    </div>
+</head>
+<body>
+    
+    <script>
+
+        new Vue({
+            el:"#aplicacion",
+            data:{
+                jugador1:0,
+                jugador2:0,
+                ganador:"--",
+                oportunidades:0
+            },
+            methods:{
+                jugar: function(event){
+                    this.jugador1=Math.round(Math.random()*10)
+                    this.jugador2=Math.round(Math.random()*10)
+                    var mensaje = "hay un empate"
+
+                    if (this.jugador1 > this.jugador2) {
+                        mensaje="jugador 1"
+                    }else{
+                        mensaje="jugador 2"
+                    }
+
+                    if (this.jugador1 == this.jugador2) {
+                        mensaje="empate"
+                    }
+
+                    this.oportunidades++
+                    this.ganador = mensaje
+                },
+                reiniciar: function(event){
+                    this.jugador1=0
+                    this.jugador2=0
+                    var mensaje = "--"
+                    this.oportunidades=0
+                }
+            }
+        })
+
+    </script>
+
+
+</body>
+</html>
