@@ -1,0 +1,47 @@
+<body>
+  <h3>Ranking</h3>
+  <p></p>
+  <ol id="ranking"></ol>
+
+  <script>
+  var data = [
+      { name: "John", score: "432"},
+      { name: "Joe", score: "400"},
+      { name: "Joe", score: "320"},
+      { name: "Ziggy", score: "532"},
+      { name: "Dave", score: "211"},
+      { name: "Sarah", score: "621"},
+      { name: "Alex", score: "320"},
+  ]
+
+  function rankingSorter(firstKey, secondKey) {
+      return function(a, b) {  
+          if (a[firstKey] > b[firstKey]) {  
+              return -1;  
+          } else if (a[firstKey] < b[firstKey]) {  
+              return 1;  
+          }  
+          else {
+              if (a[secondKey] > b[secondKey]) {  
+                  return 1;  
+              } else if (a[secondKey] < b[secondKey]) {  
+                  return -1;  
+              } else {
+                  return 0;
+              }
+          } 
+      }  
+  }
+
+  var sorted = data.sort(rankingSorter("name", "score"));
+  var containerDiv = document.getElementById("ranking");
+
+  for(var i=0; i < sorted.length; i++) {
+      var output = "Name: " + sorted[i].name + ", Score: " + sorted[i].score;
+      var list = document.createElement('li');
+      list.innerHTML = output;
+      containerDiv.appendChild(list);
+  }
+
+  </script>
+</body>

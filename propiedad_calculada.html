@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- https://www.youtube.com/watch?v=8OIXrc-a2vU&list=PLSuKjujFoGJ1Kr_e1GT2nREnzXCXgoVm3&index=8 -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>propiedad_calculada</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <div id="aplicacion">
+       
+        <input v-model.number="a" type="number" step="1"/>
+        <h1>{{ a }} -> {{ b }}</h1>
+
+    </div>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+
+        new Vue({
+            el: "#aplicacion",
+            data: {
+                a: 0
+            },
+            methods: {
+                
+            },
+            computed:{ // lo que no este en DATA me lo crtea como valor
+                b: function () {
+                    let resultado = (this.a + 8)
+                    return resultado
+                }
+            }
+        })
+
+    </script>
+
+
+</body>
+
+</html>

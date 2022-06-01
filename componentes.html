@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- https://www.youtube.com/watch?v=8OIXrc-a2vU&list=PLSuKjujFoGJ1Kr_e1GT2nREnzXCXgoVm3&index=8 -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>componentes</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+
+    <div id="aplicacion">
+
+        <contador></contador>
+        <contador></contador>
+        <contador></contador>
+
+    </div>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        Vue.component('contador', {
+            data: function () {
+                return { count: 0 }
+            },
+            template: '<button v-on:click="count++"> Click {{ count }} veces </button>'
+        })
+
+        new Vue({
+            el: "#aplicacion",
+            data: {
+               
+            },
+            methods: {
+
+            },
+            computed: { // lo que no este en DATA me lo crtea como valor
+               
+            }
+        })
+
+    </script>
+
+
+</body>
+
+</html>

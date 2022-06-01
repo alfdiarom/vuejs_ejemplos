@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- https://www.youtube.com/watch?v=8OIXrc-a2vU&list=PLSuKjujFoGJ1Kr_e1GT2nREnzXCXgoVm3&index=8 -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-fopr-objetos</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <div id="aplicacion">
+        <ul>
+            <li v-for="n in 10">
+                {{ n }}
+            </li>
+        </ul>
+
+
+        <ul>
+            <li v-for="canal in canales">
+                <h1>{{ canal.nombre }} -> {{ canal.apellido }} -> <a v-bind:href="canal.url">{{ canal.url }}</a></h1>
+                
+            </li>
+        </ul>
+
+        <h1>{{ salida }}</h1>
+
+    </div>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+
+        new Vue({
+            el: "#aplicacion",
+            data: {
+                canales: [
+                    { nombre: "A", apellido: "1", url: "www.google.es" },
+                    { nombre: "B", apellido: "2", url: "www.marca.es" },
+                    { nombre: "C", apellido: "3", url: "www.elconfidencial.es" }
+                ],
+                salida: "",
+            },
+            methods: {
+                mostrarvalor: function (event) {
+                    if (event) {
+                        this.salida = event.target.innerText
+                    }
+                }
+            }
+        })
+
+    </script>
+
+
+</body>
+
+</html>
