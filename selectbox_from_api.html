@@ -9,6 +9,7 @@
     <title>selectbox from api</title>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 
 
 </head>
@@ -16,9 +17,16 @@
 
 <body>
     <div id="aplicacion">
-        <select v-model="canales.nombre">
+        <select>
             <option v-for="canal in canales">{{ canal.nombre }}</option>
         </select>
+
+        <select>
+            <option v-for="item in info">{{ item.OperationNumber }}</option>
+        </select>
+
+        <!-- <p v-for="item in info">{{ item.OperationNumber }}</p> -->
+        <!-- <p>{{ info.OrderNumber }}</p> --> 
 
     </div>
 </body>
@@ -35,8 +43,19 @@
                 { nombre: "B", apellido: "2", url: "www.marca.es" },
                 { nombre: "C", apellido: "3", url: "www.elconfidencial.es" }
             ],
+            info: [],
             salida: "",
-        }})
+        },
+        mounted() {
+            const URL = `http://scorpio.sev.alestis:8800/sap_kong/sap/opu/odata/SAP/ZGW_POLARIS_V2_SRV/zOpeSet?$filter=Number eq '001001479491' and PiOperation eq 'X' and PiHeader eq 'X'&$format=json`
+
+             axios.get(URL, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }}).then(respuesta=>this.info = respuesta.data.d.results)
+
+        },
+    })
 
 </script>
 
