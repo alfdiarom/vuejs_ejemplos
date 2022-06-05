@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- https://www.youtube.com/watch?v=8OIXrc-a2vU&list=PLSuKjujFoGJ1Kr_e1GT2nREnzXCXgoVm3&index=8 -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selectbox from api</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+
+</head>
+
+
+<body>
+    <div id="aplicacion">
+        <select v-model="canales.nombre">
+            <option v-for="canal in canales">{{ canal.nombre }}</option>
+        </select>
+
+    </div>
+</body>
+
+
+<script type="text/javascript">
+
+
+    new Vue({
+        el: "#aplicacion",
+        data: {
+            canales: [
+                { nombre: "A", apellido: "1", url: "www.google.es" },
+                { nombre: "B", apellido: "2", url: "www.marca.es" },
+                { nombre: "C", apellido: "3", url: "www.elconfidencial.es" }
+            ],
+            salida: "",
+        }})
+
+</script>
+
+</body>
